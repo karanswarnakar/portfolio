@@ -24,21 +24,25 @@ body {
 }
 
 nav {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  pointer-events: none;
 }
-nav ul {
+nav .nav-container {
   list-style-type: none;
-  background-color: rgba(51, 51, 51, 0.1098039216);
+  background-color: #0d0d0d;
   font-family: "Rubik", sans-serif;
   display: flex;
   gap: 0.5rem;
   padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1411764706);
   border-radius: 0.25rem;
+  pointer-events: all;
 }
-nav ul li {
+nav .nav-container .nav-link {
   padding: 10px 15px;
   border-radius: 0.25rem;
   background-color: rgba(26, 26, 26, 0.2117647059);
@@ -46,21 +50,23 @@ nav ul li {
   transition: all 0.17s cubic-bezier(0.7, 0, 0.3, 1);
   cursor: pointer;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3490196078);
+  border: 1px solid rgba(255, 255, 255, 0.062745098);
+  text-decoration: none;
 }
-nav ul li::-moz-selection {
+nav .nav-container .nav-link::-moz-selection {
   background-color: transparent;
 }
-nav ul li::selection {
+nav .nav-container .nav-link::selection {
   background-color: transparent;
 }
-nav ul li:hover {
+nav .nav-container .nav-link:hover {
   background-color: #1a1a1a;
   scale: 1.04;
 }
-nav ul li:active {
+nav .nav-container .nav-link:active {
   scale: 0.99;
 }
-nav ul .burger {
+nav .nav-container .burger {
   position: relative;
   width: 40px;
   height: 30px;
@@ -70,10 +76,10 @@ nav ul .burger {
   border-radius: 0.25rem;
   background-color: rgba(26, 26, 26, 0.2117647059);
 }
-nav ul .burger input {
+nav .nav-container .burger input {
   display: none;
 }
-nav ul .burger span {
+nav .nav-container .burger span {
   display: block;
   position: absolute;
   height: 4px;
@@ -85,33 +91,45 @@ nav ul .burger span {
   transform: rotate(0deg);
   transition: 0.25s ease-in-out;
 }
-nav ul .burger span:nth-of-type(1) {
+nav .nav-container .burger span:nth-of-type(1) {
   top: 0px;
   transform-origin: left center;
 }
-nav ul .burger span:nth-of-type(2) {
+nav .nav-container .burger span:nth-of-type(2) {
   top: 50%;
   transform: translateY(-50%);
   transform-origin: left center;
 }
-nav ul .burger span:nth-of-type(3) {
+nav .nav-container .burger span:nth-of-type(3) {
   top: 100%;
   transform-origin: left center;
   transform: translateY(-100%);
 }
-nav ul .burger input:checked ~ span:nth-of-type(1) {
+nav .nav-container .burger input:checked ~ span:nth-of-type(1) {
   transform: rotate(45deg);
   top: 0px;
   left: 5px;
 }
-nav ul .burger input:checked ~ span:nth-of-type(2) {
+nav .nav-container .burger input:checked ~ span:nth-of-type(2) {
   width: 0%;
   opacity: 0;
 }
-nav ul .burger input:checked ~ span:nth-of-type(3) {
+nav .nav-container .burger input:checked ~ span:nth-of-type(3) {
   transform: rotate(-45deg);
   top: 28px;
   left: 5px;
+}
+
+.active {
+  padding: 10px 15px;
+  border-radius: 0.25rem;
+  background-color: rgba(125, 125, 125, 0.2117647059);
+  color: rgba(255, 255, 255, 0.9411764706);
+  transition: all 0.17s cubic-bezier(0.7, 0, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3490196078);
+  border: 1px solid rgba(255, 255, 255, 0.062745098);
+  text-decoration: none;
 }
 
 /* Phones */
@@ -119,13 +137,13 @@ nav ul .burger input:checked ~ span:nth-of-type(3) {
   nav {
     justify-content: flex-end;
   }
-  nav ul {
+  nav .nav-container {
     scale: 0.8;
   }
-  nav ul li {
+  nav .nav-container a {
     display: none;
   }
-  nav ul .burger {
+  nav .nav-container .burger {
     display: block;
   }
 }/*# sourceMappingURL=index.css.map */

@@ -110,19 +110,23 @@ body {
 
 // Navbar
 nav {
+    width: 100%;
     @include flex-center();
     padding: $space-md;
+    pointer-events: none;
 
-    ul {
+    .nav-container {
         list-style-type: none;
-        background-color: #3333331c;
+        background-color: #0d0d0d;
         font-family: $f1;
         display: flex;
         gap: $space-sm;
         padding: $space-md;
+        border: 1px solid #ffffff24;
         border-radius: $border-radius-xs;
+        pointer-events: all;
 
-        li {
+        .nav-link {
             padding: 10px 15px;
             border-radius: $border-radius-xs;
             background-color: #1a1a1a36;
@@ -130,8 +134,8 @@ nav {
             transition: all .17s cubic-bezier(.7, 0, .3, 1);
             cursor: pointer;
             box-shadow: $shadow-lg;
-
-
+            border: 1px solid #ffffff10;
+            text-decoration: none;
 
 
             &::selection {
@@ -213,20 +217,34 @@ nav {
     }
 }
 
+.active {
+    padding: 10px 15px;
+    border-radius: $border-radius-xs;
+    background-color: #7d7d7d36;
+    color: #fffffff0;
+    transition: all .17s cubic-bezier(.7, 0, .3, 1);
+    cursor: pointer;
+    box-shadow: $shadow-lg;
+    border: 1px solid #ffffff10;
+    text-decoration: none;
 
+}
 
 
 /* Phones */
 @media only screen and (min-width: 0px) and (max-width: 600px) {
     nav {
-            justify-content: flex-end;
-        ul {
+        justify-content: flex-end;
+
+        .nav-container {
             scale: .8;
-            li{
+
+            a {
                 display: none;
             }
+
             .burger {
-                
+
                 display: block;
             }
         }
