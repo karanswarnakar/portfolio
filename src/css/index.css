@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+/* <--------- Variables ---------> */
+/* Colors */
+/* Spacing */
+/* Radius */
+/* Typography */
+/* Shadows */
+/* Transitions */
+/* Z-index */
+/* Font Sizes */
+/* Font Family */
+/* <--------- Mixins ---------> */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+nav ul {
+  list-style-type: none;
+  background-color: rgba(51, 51, 51, 0.1098039216);
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+nav ul li {
+  padding: 10px 15px;
+  border-radius: 0.25rem;
+  background-color: rgba(26, 26, 26, 0.2117647059);
+  color: #fff;
+  transition: all 0.17s cubic-bezier(0.7, 0, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3490196078);
+}
+nav ul li::-moz-selection {
+  background-color: transparent;
+}
+nav ul li::selection {
+  background-color: transparent;
+}
+nav ul li:hover {
+  background-color: #1a1a1a;
+  scale: 1.04;
+}
+nav ul li:active {
+  scale: 0.99;
+}
+nav ul .burger {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  display: none;
+  border-radius: 0.25rem;
+  background-color: rgba(26, 26, 26, 0.2117647059);
+}
+nav ul .burger input {
+  display: none;
+}
+nav ul .burger span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #fff;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+nav ul .burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+nav ul .burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+nav ul .burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+nav ul .burger input:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+nav ul .burger input:checked ~ span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+nav ul .burger input:checked ~ span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 5px;
+}
+
+/* Phones */
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+  nav {
+    justify-content: flex-end;
+  }
+  nav ul {
+    scale: 0.8;
+  }
+  nav ul li {
+    display: none;
+  }
+  nav ul .burger {
+    display: block;
+  }
+}/*# sourceMappingURL=index.css.map */
