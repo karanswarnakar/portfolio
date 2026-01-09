@@ -9,7 +9,7 @@ const Navbar = () => {
   function menuOpen() {
   
   }
-
+ 
 
   return (
     <>
@@ -43,10 +43,12 @@ const Navbar = () => {
           >
             <input type="checkbox" id="burger"
               onClick={(e) => {
-                if (!isMenuOpen === true) {
-                  setisMenuOpen(true)
-                } else {
+
+                if (isMenuOpen === true) {
                   setisMenuOpen(false)
+                  
+                } else {
+                  setisMenuOpen(true)
                 }
 
               }}

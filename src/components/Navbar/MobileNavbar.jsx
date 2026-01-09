@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { NavLink } from 'react-router-dom'
-
+import {LoadPageTrangition} from './index'
 const MobileNavbar = () => {
     const navbarData = ["Home", "About", "Docs", "Projects", "Resume"]
     return (
@@ -21,6 +21,10 @@ const MobileNavbar = () => {
                         className={({ isActive }) =>
                             isActive ? "active" : "nav-link"
                         }
+                        onClick={(e)=>{
+                            LoadPageTrangition(elm)
+                            
+                        }}
                     >
                         {elm}
                     </NavLink>
