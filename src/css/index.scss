@@ -98,15 +98,16 @@ $f1: "Rubik", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+    // user-select: none;
+    // -webkit-user-select: none;
+    // -ms-user-select: none;
 }
 
 html {
     -ms-overflow-style: none;
     scrollbar-width: none;
     background-color: #111;
+    color: #fff;
 }
 
 html,
@@ -115,6 +116,267 @@ body {
     width: 100%;
     background-color: $bg-primary-color
 }
+
+
+/* ------ VARIABLES ------ */
+
+$bg-dark: #020a1d;
+$text-muted: #94a3b8;
+$text-main: #e2e8f0;
+$violet: #a78bfa;
+$pink: #f472b6;
+$blue: #60a5fa;
+
+
+
+.code-card {
+    position: relative;
+    border-radius: 12px;
+    padding: 0.5rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    &__header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 0.75rem;
+    }
+
+    &__traffic {
+        position: absolute;
+        left: 0.75rem;
+        top: 0.75rem;
+        display: flex;
+        gap: 0.4rem;
+    }
+
+    &__title {
+        font-size: 0.75rem;
+        color: $text-muted;
+    }
+
+    &__body {
+        margin-top: 1.25rem;
+        padding: 0 1.25rem 2.5rem;
+    }
+}
+
+
+/* ------ DOTS (WINDOW BUTTONS) ------ */
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0.35;
+
+    &--red {
+        background: #ef4444;
+    }
+
+    &--yellow {
+        background: #eab308;
+    }
+
+    &--green {
+        background: #22c55e;
+    }
+}
+
+
+/* ------ CODE TYPOGRAPHY ------ */
+
+.code-line {
+    font-size: 0.75rem;
+    line-height: 1.2rem;
+    color: $violet;
+    letter-spacing: 0.02em;
+    margin: 2px 0;
+}
+
+.tag {
+    color: #94a3b8;
+}
+
+.highlight {
+    position: relative;
+    color: $blue;
+    padding: 0 4px;
+    border-radius: 4px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+        z-index: -1;
+    }
+}
+
+
+/* ------ INDENT SYSTEM ------ */
+
+.indent-1 {
+    margin-left: 12px;
+}
+
+.indent-2 {
+    margin-left: 24px;
+}
+
+.indent-3 {
+    margin-left: 36px;
+}
+
+
+
+/* ---- DARK (DEFAULT) ---- */
+.code-card--dark {
+    background: $bg-dark;
+    outline: 2px solid #ffffff45;
+    box-shadow: 1px 10px 100px 0 #003cff27;
+}
+
+/* ---- LIGHT ---- */
+.code-card--light {
+    background: #f8fafc;
+
+    .code-line {
+        color: #4c1d95;
+    }
+
+    .tag {
+        color: #64748b;
+    }
+
+    .highlight {
+        color: #2563eb;
+    }
+
+    .code-card__title {
+        color: #64748b;
+    }
+}
+
+/* ---- GLASS ---- */
+.code-card--glass {
+    background: #0f172a99;
+    backdrop-filter: blur(12px);
+    border: 1px solid #ffffff14;
+}
+
+/* ---- NEON ---- */
+.code-card--neon {
+    background: #b300ff4d;
+
+    .highlight {
+        color: #b200ff;
+
+        &::before {
+            background: rgba(34, 211, 238, 0.15);
+        }
+    }
+}
+
+.js-code {
+    .tag {
+        color: #22c55e;
+    }
+}
+
+
+.shine-text {
+    display: inline;
+    background-size: 200% auto;
+    background-position: 0% center;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 200% center;
+    }
+}
+
+.shine-silver {
+    background-image: linear-gradient(90deg,
+            #9f9f9f 0%,
+            #ffffff 20%,
+            #868686 40%,
+            #9f9f9f 60%);
+}
+
+.shine-blue {
+    background-image: linear-gradient(90deg,
+            #2563eb 0%,
+            #60a5fa 20%,
+            #93c5fd 40%,
+            #2563eb 60%);
+}
+
+.shine-purple {
+    background-image: linear-gradient(90deg,
+            #7c3aed 0%,
+            #a78bfa 20%,
+            #c4b5fd 40%,
+            #7c3aed 60%);
+}
+
+.shine-green {
+    background-image: linear-gradient(90deg,
+            #15803d 0%,
+            #22c55e 20%,
+            #86efac 40%,
+            #15803d 60%);
+}
+
+.shine-orange {
+    background-image: linear-gradient(90deg,
+            #c2410c 0%,
+            #fb923c 20%,
+            #fdba74 40%,
+            #c2410c 60%);
+}
+
+.shine-pink {
+    background-image: linear-gradient(90deg,
+            #be185d 0%,
+            #f472b6 20%,
+            #f9a8d4 40%,
+            #be185d 60%);
+}
+
+
+
+@mixin glass($blur: 4px) {
+    background: #ffffff13;
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+}
+
+@mixin flex-center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin backColor($bg: "#111") {
+    background-color: $bg;
+    padding: $space-md;
+    border-radius: $border-radius-xs;
+}
+
 
 
 // Navbar
@@ -126,10 +388,12 @@ nav {
     pointer-events: none;
     font-family: $f1;
     transition: $animation-slow;
+    position: absolute;
+    top: 0;
 
     .nav-container {
+        @include glass();
         list-style-type: none;
-        background-color: #0d0d0d;
         font-family: $f1;
         display: flex;
         gap: $space-sm;
@@ -242,23 +506,86 @@ nav {
     transition: all .17s cubic-bezier(.7, 0, .3, 1);
     cursor: pointer;
     box-shadow: $shadow-lg;
-    border: 1px solid #ffffff10;
+    border: 1px solid #ffffff24;
     text-decoration: none;
 
 }
 
+// Section1
+
+.section1 {
+    height: 100vh;
+    background-color: #0015ff1b;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-family: $f1;
+
+    .landpage {
+        padding: 0 $space-4xl;
+        @include flex-center();
+        justify-content: start;
+
+        .landpage-data {
+            @include backColor(#0000002d);
+            border: 1px solid #ffffff14;
+
+            .sub-titel {
+                @include backColor(#ffffff1e);
+                box-shadow: inset 0 0 0px 1px #ffffff11;
+                color: #ffffffab;
+                padding: $space-sm $space-md;
+            }
+
+            p {
+                margin-top: $space-sm;
+                @include backColor($bg-dark);
+                color: #ffffff6e;
+                font-size: $fs-lg;
+                line-height: 25px;
+
+                span {
+                    color: #fff;
+                }
+            }
+
+            p:nth-child(3) {
+                font-size: $fs-xl;
+                line-height: 25px;
+            }
+        }
+    }
+
+    .code-data {
+        height: 100%;
+        width: 100%;
+        @include flex-center();
+        justify-content: end;
+        padding: 0 5rem;
+        
+        .code-card {
+            transform: scale(1.4);
+
+        }
+    }
+}
+
+
+
 
 /* Phones */
 @media only screen and (min-width: 0px) and (max-width: 600px) {
+
+    // Navbar
     nav {
-        // height: 100vh;
+        // height: fit-content;
         width: 100%;
-        // background-color: red;
+        @include glass(70px);
         justify-content: flex-end;
         align-items: end;
         flex-flow: column-reverse;
         transition: height .7s cubic-bezier(.7, 0, .3, 1);
         pointer-events: all;
+        z-index: $z-modal;
 
         .nav-container {
             scale: .8;
@@ -313,6 +640,38 @@ nav {
                 scale: .99;
             }
 
+        }
+    }
+
+    // Section1
+
+}
+
+/* Tab */
+@media only screen and (min-width: 0px) and (max-width: 900px) {
+
+    // Section1
+    .section1 {
+        height: auto;
+        background-color: #0015ff1b;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 400px;
+        font-family: $f1;
+
+        .landpage {
+            margin-top: 8rem;
+            padding: 0 2rem;
+        }
+
+        .code-data {
+
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            justify-content: senter;
+            padding: 0 5rem;
+            justify-items: start;
         }
     }
 }

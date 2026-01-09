@@ -16,7 +16,7 @@ const App = () => {
         <Route path='/portfolio/docs' element={<Docs />} />
         <Route path='/portfolio/projects' element={<Projects />} />
         <Route path='/*' element={<PageNotFound />} />
-          
+
       </Routes>
 
     </>

@@ -1,21 +1,43 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import MobileNavbar from './MobileNavbar'
+import MenuBtn from './MenuBtn'
 
 const Navbar = () => {
   const navbarData = ["Home", "About", "Docs", "Projects", "Resume"]
   const [isMenuOpen, setisMenuOpen] = useState(false)
 
-  function menuOpen() {
-  
+  function menuClose() {
+    setisMenuOpen(false)
+
+    
   }
- 
+  setInterval(() => {
+    if (window.innerWidth >= 600) {
+       menuClose()
+    }
+  }, 10);
+
+
+
+
+
+
+
 
   return (
     <>
-      <nav>
+      <nav
+        style={
+          {
+            height: isMenuOpen===true? "100vh" : "auto",
+            position: isMenuOpen===true? "fixed" : "absolute",
+            
+          }
+        }
+      >
         {/* <MobileNavbar/> */}
-          {isMenuOpen === true ? <MobileNavbar  /> : " "}
+        {isMenuOpen === true ? <MobileNavbar /> : " "}
 
         <div className="nav-container">
 
@@ -39,27 +61,10 @@ const Navbar = () => {
             )
           })}
 
-          <label className="burger" htmlFor="burger"
-          >
-            <input type="checkbox" id="burger"
-              onClick={(e) => {
-
-                if (isMenuOpen === true) {
-                  setisMenuOpen(false)
-                  
-                } else {
-                  setisMenuOpen(true)
-                }
-
-              }}
-            />
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
+          <MenuBtn currentStatus={isMenuOpen} changeMenuStatus={setisMenuOpen} />
         </div>
       </nav>
-       
+
     </>
   )
 }

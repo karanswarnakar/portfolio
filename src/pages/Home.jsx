@@ -1,15 +1,11 @@
 import React from 'react'
+import Section1 from '../components/Sections/Section1'
 
 const Home = () => {
   return (
-    <div>
-      <h1
-        style={{
-            color: "#fff",
-            fontSize: "7rem"
-        }}
-      >Home</h1>
-    </div>
+    <>
+      <Section1 />
+    </>
   )
 }
 
