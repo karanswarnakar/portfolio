@@ -15,6 +15,9 @@ const Navbar = () => {
   setInterval(() => {
     if (window.innerWidth >= 600) {
        menuClose()
+    }else{
+      // console.log("Hi");
+      
     }
   }, 10);
 
@@ -28,13 +31,21 @@ const Navbar = () => {
   return (
     <>
       <nav
+      id='nav'
         style={
           {
             height: isMenuOpen===true? "100vh" : "auto",
             position: isMenuOpen===true? "fixed" : "absolute",
-            
+            // backgroundColor:"red"
           }
         }
+        onClick={(e)=>{
+          
+          if (e.target.id === "nav") {
+            menuClose()
+          }
+          
+        }}
       >
         {/* <MobileNavbar/> */}
         {isMenuOpen === true ? <MobileNavbar /> : " "}

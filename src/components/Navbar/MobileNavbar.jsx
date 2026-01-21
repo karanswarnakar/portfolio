@@ -4,8 +4,11 @@ import { NavLink } from 'react-router-dom'
 import {LoadPageTransition} from './index'
 const MobileNavbar = () => {
     const navbarData = ["Home", "About", "Docs", "Projects", "Resume"]
+ 
     return (
-        <div className='mobileNavbar'>
+        <div className='mobileNavbar' id='mobileNav'
+           
+        >
 
             {navbarData.map((elm, idx) => {
                 const path =
