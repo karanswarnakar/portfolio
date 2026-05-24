@@ -512,63 +512,12 @@ nav {
 }
 
 // Section1
-
-.section1 {
+.Section1{
     height: 100vh;
-    background-color: #0015ff1b;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    font-family: $f1;
+    width: 100%;
+   background: linear-gradient(180deg,#000000 21%, #1b015d 71%);
 
-    .landpage {
-        padding: 0 $space-4xl;
-        @include flex-center();
-        justify-content: start;
-
-        .landpage-data {
-            @include backColor(#0000002d);
-            border: 1px solid #ffffff14;
-
-            .sub-titel {
-                @include backColor(#ffffff1e);
-                box-shadow: inset 0 0 0px 1px #ffffff11;
-                color: #ffffffab;
-                padding: $space-sm $space-md;
-            }
-
-            p {
-                margin-top: $space-sm;
-                @include backColor($bg-dark);
-                color: #ffffff6e;
-                font-size: $fs-lg;
-                line-height: 25px;
-
-                span {
-                    color: #fff;
-                }
-            }
-
-            p:nth-child(3) {
-                font-size: $fs-xl;
-                line-height: 25px;
-            }
-        }
-    }
-
-    .code-data {
-        height: 100%;
-        width: 100%;
-        @include flex-center();
-        justify-content: end;
-        padding: 0 5rem;
-        
-        .code-card {
-            transform: scale(1.4);
-
-        }
-    }
 }
-
 
 
 
@@ -651,27 +600,5 @@ nav {
 @media only screen and (min-width: 0px) and (max-width: 900px) {
 
     // Section1
-    .section1 {
-        height: auto;
-        background-color: #0015ff1b;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 400px;
-        font-family: $f1;
-
-        .landpage {
-            margin-top: 8rem;
-            padding: 0 2rem;
-        }
-
-        .code-data {
-
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            justify-content: senter;
-            padding: 0 5rem;
-            justify-items: start;
-        }
-    }
+   
 }
