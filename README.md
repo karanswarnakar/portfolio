@@ -8,3 +8,4 @@
 needto add custom function 
 clean ui & ux
 add animation and transition 
+impliment AUTOMATION CUSTOMIZED FEATURE 
